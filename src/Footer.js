@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useStateValue } from "./StateProvider";
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
@@ -12,7 +12,7 @@ import "./Footer.css";
 import { Grid, Slider } from "@mui/material";
 
 function Footer({ spotify }) {
-  const [{ token, item, playing }, dispatch] = useStateValue();
+  const [{ item, playing }, dispatch] = useStateValue(); // eslint-disable-next-line 
 
   useEffect(() => {
     spotify.getMyCurrentPlaybackState().then((r) => {
@@ -28,7 +28,7 @@ function Footer({ spotify }) {
         item: r.item,
       });
     });
-  }, [spotify]);
+  }, [spotify]); // eslint-disable-next-line 
 
   const handlePlayPause = () => {
     if (playing) {
